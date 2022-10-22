@@ -3,18 +3,6 @@ package liga.medical.medicalmonitoring.core.antisolid;
 // Liskov Substitution
 public class AntiL {
 
-    private class Animal {
-    }
-
-    private class Dog extends Animal {
-    }
-
-    private class Cat extends Animal {
-    }
-
-    private class Giraffe extends Animal {
-    }
-
     // Если мы создадим объект Giraffe,
     // то нам придется менять логику метода и
     // добавлять проверку для Giraffe
@@ -25,5 +13,17 @@ public class AntiL {
             return "Мяу-Мяу";
         }
         return null;
+    }
+
+    private class Animal {
+    }
+
+    private class Dog extends Animal {
+    }
+
+    private class Cat extends Animal {
+    }
+
+    private class Giraffe extends Animal {
     }
 }
