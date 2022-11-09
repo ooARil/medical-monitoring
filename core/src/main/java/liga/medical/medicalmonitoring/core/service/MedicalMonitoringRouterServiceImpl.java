@@ -1,12 +1,13 @@
 package liga.medical.medicalmonitoring.core.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import liga.medical.medicalmonitoring.core.annotation.DbLog;
 import liga.medical.medicalmonitoring.core.api.MedicalMonitoringRouterService;
 import liga.medical.medicalmonitoring.core.api.MedicalMonitoringSenderService;
 import liga.medical.medicalmonitoring.core.config.ExchangeConfiguration;
-import liga.medical.medicalmonitoring.core.model.MessageType;
-import liga.medical.medicalmonitoring.core.model.QueueNames;
-import liga.medical.medicalmonitoring.core.model.RabbitMessageDTO;
+import liga.medical.model.dto.QueueNames;
+import liga.medical.model.dto.RabbitMessageDTO;
+import liga.medical.model.dto.enums.MessageType;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ public class MedicalMonitoringRouterServiceImpl implements MedicalMonitoringRout
         this.rabbitTemplate = rabbitTemplate;
     }
 
+    @DbLog
     @Override
     public void routeMessage(String message) {
         try {
